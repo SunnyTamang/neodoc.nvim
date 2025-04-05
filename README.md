@@ -22,6 +22,10 @@ A Neovim plugin for generating docstrings across multiple programming languages.
 - Easy-to-use commands and keymaps
 - Customizable keybindings
 
+## Demo
+
+![neodoc](media/neodoc.mov)
+
 ## Installation
 
 Using packer.nvim:
