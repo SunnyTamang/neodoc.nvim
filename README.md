@@ -29,9 +29,6 @@ A Neovim plugin for generating docstrings across multiple programming languages.
 https://github.com/user-attachments/assets/9126d21e-14ce-4292-abca-1c2ab9b15e81
 
 
-
-![neodoc](media/neodoc.mp4)
-
 ## Installation
 
 Using packer.nvim:
