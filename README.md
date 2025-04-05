@@ -24,7 +24,7 @@ A Neovim plugin for generating docstrings across multiple programming languages.
 
 ## Demo
 
-![neodoc](media/Neodoc.mov)
+![neodoc](media/neodoc.mov)
 
 ## Installation
 
