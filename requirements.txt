@@ -1,0 +1,2 @@
+# Core dependencies for docstring generation
+python-dotenv>=1.0.0

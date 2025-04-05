@@ -1,0 +1,196 @@
+*neodoc.txt*  Multi-language docstring generator with custom templates
+
+================================================================================
+CONTENTS                                                         *neodoc-contents*
+
+    1. Introduction ....................................... |neodoc-introduction|
+    2. Language Support .................................. |neodoc-lang-support|
+    3. Installation ...................................... |neodoc-installation|
+    4. Configuration ..................................... |neodoc-configuration|
+    5. Usage ............................................. |neodoc-usage|
+    6. Commands .......................................... |neodoc-commands|
+    7. Mappings .......................................... |neodoc-mappings|
+    8. Template Editor ................................... |neodoc-template-editor|
+    9. Custom Templates .................................. |neodoc-custom-templates|
+    10. Future Plans ..................................... |neodoc-future-plans|
+
+================================================================================
+1. INTRODUCTION                                             *neodoc-introduction*
+
+NeoDoc is a Neovim plugin for generating docstrings across multiple programming
+languages. Currently focused on Python with plans to expand support for more
+languages. The plugin supports multiple docstring styles and allows for custom
+templates through an interactive template editor with live preview.
+
+================================================================================
+2. LANGUAGE SUPPORT                                        *neodoc-lang-support*
+
+Current language support status:
+
+Language        Function Docstring        Class Docstring ~
+Python              yes                       no
+JavaScript         planned                  planned
+TypeScript         planned                  planned
+Go                 planned                  planned
+Rust               planned                  planned
+
+================================================================================
+3. INSTALLATION                                             *neodoc-installation*
+
+Using packer.nvim: >
+    use {
+        'sunnytamang/neodoc.nvim',
+        config = function()
+            require('neodoc').setup({
+                -- your configuration here
+            })
+        end
+    }
+<
+
+Using lazy.nvim: >
+    {
+        'sunnytamang/neodoc.nvim',
+        config = function()
+            require('neodoc').setup({
+                -- your configuration here
+            })
+        end
+    }
+<
+
+================================================================================
+4. CONFIGURATION                                           *neodoc-configuration*
+
+Configure NeoDoc using the setup function: >
+    require('neodoc').setup({
+        -- Python interpreter path (default: 'python3')
+        python_interpreter = 'python3',
+        
+        -- Default docstring style (default: 'google')
+        docstring_style = 'google',
+        
+        -- Enable keymaps (default: true)
+        enable_keymaps = true,
+        
+        -- Keymap prefix (default: '<leader>d')
+        keymap = '<leader>d',
+        
+        -- Use custom template (default: false)
+        use_custom_template = false
+    })
+<
+
+================================================================================
+5. USAGE                                                         *neodoc-usage*
+
+Position your cursor inside a function and use one of the following:
+- Use the `:NeoDoc generate` command
+- Press `<leader>dd` (default keymap)
+- Use `:NeoDoc template` to open the template editor
+
+Note: Currently only supports function docstrings. Class docstring support is
+planned for future releases.
+
+================================================================================
+6. COMMANDS                                                   *neodoc-commands*
+
+                                                                  *:NeoDoc*
+:NeoDoc {subcommand}     Main command with the following subcommands:
+                        - generate: Generate docstring at cursor
+                        - config: Show current configuration
+                        - set_style <style>: Set docstring style
+                        - set_python <path>: Set Python interpreter path
+                        - template: Open template editor
+                        - preview: Show docstring preview
+
+                                                            *:NeoDocGenerate*
+:NeoDocGenerate         Generate docstring for the function at cursor
+
+                                                               *:NeoDocStyle*
+:NeoDocStyle {style}    Set docstring style (google, numpy, sphinx)
+
+                                                              *:NeoDocConfig*
+:NeoDocConfig          Show current configuration
+
+                                                         *:NeoDocSetPython*
+:NeoDocSetPython {path} Set Python interpreter path
+
+                                                            *:NeoDocPreview*
+:NeoDocPreview         Show docstring preview
+
+                                                           *:NeoDocTemplate*
+:NeoDocTemplate        Open the template editor
+
+================================================================================
+7. MAPPINGS                                                   *neodoc-mappings*
+
+Default mappings (when enable_keymaps = true):
+
+Normal mode:
+    <leader>dd    Generate docstring at cursor
+    <leader>dc    Change docstring style
+    <leader>de    Open template editor
+
+Template Editor:
+    <leader>ds    Save template
+    <C-q>         Close template editor
+
+================================================================================
+8. TEMPLATE EDITOR                                       *neodoc-template-editor*
+
+The template editor provides a split window interface with:
+- Left pane: Template editor for modifying the template
+- Right pane: Live preview showing how the template will look
+
+Features:
+- Live preview updates as you type
+- Proper indentation handling
+- Automatic template loading on startup
+- Template persistence across sessions
+
+================================================================================
+9. CUSTOM TEMPLATES                                     *neodoc-custom-templates*
+
+Custom templates support the following placeholders:
+    {params}        Function parameters
+    {return_type}   Return type annotation
+
+Templates are saved at: ~/.config/nvim/lua/neodoc/custom_template.lua
+
+Example template: >
+    """
+    TODO: Add function description
+
+    Parameters:
+    ----------
+    {params}
+
+    Returns:
+    -------
+    {return_type}
+
+    Raises:
+    ------
+        TODO: Add exceptions that might be raised
+
+    Examples:
+    --------
+        >>> TODO: Add example usage
+    """
+<
+
+================================================================================
+10. FUTURE PLANS                                           *neodoc-future-plans*
+
+Planned features for future releases:
+- Support for additional programming languages
+- Class docstring generation
+- AI-powered docstring generation
+- Enhanced template customization options
+- Language-specific template features
+- Improved parameter type detection
+- Integration with language servers
+
+================================================================================
+vim:ft=help:tw=78:ts=8:noet:fen:fdl=0:fdm=marker:
