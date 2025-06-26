@@ -13,7 +13,7 @@ M.setup = function(opts)
     commands.setup_keymaps()
     
     -- Log initialization
-    vim.notify("NeoDoc initialized with template-based generation", vim.log.levels.INFO)
+    --vim.notify("NeoDoc initialized with template-based generation", vim.log.levels.INFO)
     
     return M
 end
