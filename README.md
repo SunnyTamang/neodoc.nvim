@@ -47,11 +47,9 @@ Using lazy.nvim:
 ```lua
 {
     'sunnytamang/neodoc.nvim',
-    config = function()
-        require('neodoc').setup({
+    opts = {
             -- your configuration here
-        })
-    end
+    }
 }
 ```
 
